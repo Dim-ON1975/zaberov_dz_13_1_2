@@ -8,8 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 requests = "^2.31.0"
-google-api-python-client = "^2.103.0"
 isodate = "^0.6.1"
+google-api-python-client = "^2.103.0"
 
 
 [tool.poetry.group.dev.dependencies]
