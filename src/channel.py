@@ -63,4 +63,51 @@ class Channel:
             # ensure_ascii=False - решает проблему с русской кодировкой
             json.dump(content, file, ensure_ascii=False, indent=2)
 
+    def __str__(self) -> str:
+        """
+        Возвращает удобочитаемое (или неформальное)
+        строковое представление наименования канала и url-ссылки на него
+        """
+        return f'{self.title} {self.url}'
 
+    def __add__(self, other) -> int:
+        """
+        Сложение количества подписчиков двух каналов (экземпляров класса)
+        """
+        return int(self.subscriber_count) + int(other.subscriber_count)
+
+    def __sub__(self, other) -> int:
+        """
+        Вычитание количества подписчиков двух каналов (экземпляров класса)
+        """
+        return int(self.subscriber_count) - int(other.subscriber_count)
+
+    def __gt__(self, other) -> bool:
+        """
+        Сравнение (>) количества подписчиков двух каналов (экземпляров класса)
+        """
+        return int(self.subscriber_count) > int(other.subscriber_count)
+
+    def __ge__(self, other) -> bool:
+        """
+        Сравнение (>=) количества подписчиков двух каналов (экземпляров класса)
+        """
+        return int(self.subscriber_count) >= int(other.subscriber_count)
+
+    def __lt__(self, other) -> bool:
+        """
+        Сравнение (<) количества подписчиков двух каналов (экземпляров класса)
+        """
+        return int(self.subscriber_count) < int(other.subscriber_count)
+
+    def __le__(self, other) -> bool:
+        """
+        Сравнение (<=) количества подписчиков двух каналов (экземпляров класса)
+        """
+        return int(self.subscriber_count) <= int(other.subscriber_count)
+
+    def __eq__(self, other) -> bool:
+        """
+        Сравнение (==) количества подписчиков двух каналов (экземпляров класса)
+        """
+        return int(self.subscriber_count) == int(other.subscriber_count)
