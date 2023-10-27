@@ -38,12 +38,6 @@ class Video(Channel):
 class PLVideo(Video):
     def __init__(self, video_id: str, play_list_id: str) -> None:
         super().__init__(video_id)
-        video_response = self.video_statistics(self.video_id)
-        # self.print_info(video_response)
-        self.video_title: str = video_response['items'][0]['snippet']['title']  # Название
-        self.link: str = 'https://youtu.be/' + self.video_id  # ссылка на видео
-        self.view_count: int = video_response['items'][0]['statistics']['viewCount']  # Просмотры
-        self.like_count: int = video_response['items'][0]['statistics']['likeCount']  # Лайки
         self.play_list_id: str = play_list_id  # id плей-листа
 
 
