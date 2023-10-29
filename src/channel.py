@@ -1,11 +1,11 @@
 import os
 import json
-from googleapiclient.discovery import build
+
+from src.getyoutube import Getyoutube
 
 
-class Channel:
+class Channel(Getyoutube):
     """Класс для ютуб-канала"""
-    youtube = None  # объект для работы с API
 
     def __init__(self, channel_id: str) -> None:
         """Экземпляр инициализируется id канала.
@@ -24,17 +24,6 @@ class Channel:
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         print(json.dumps(self.__channel_id, indent=2, ensure_ascii=False))
-
-    @classmethod
-    def get_service(cls) -> object:
-        """
-        Возвращает объект для работы с YouTube API
-        """
-        # Ключ для работы с API с ютуба.
-        api_key: str = os.getenv('YT_API_KEY')
-        # Создаём специальный объект для работы с API
-        cls.youtube = build('youtube', 'v3', developerKey=api_key)
-        return cls.youtube
 
     @property
     def channel_id(self) -> dict:
