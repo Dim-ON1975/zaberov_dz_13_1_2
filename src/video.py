@@ -2,6 +2,9 @@ from src.getyoutube import Getyoutube
 
 
 class Video(Getyoutube):
+    """
+    Класс видео с ютуб-канала
+    """
     def __init__(self, video_id):
         self.video_id = video_id  # id видео
         video_response = self.video_statistics(self.video_id)
