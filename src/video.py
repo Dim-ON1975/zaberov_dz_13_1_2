@@ -1,11 +1,7 @@
-import json
-
-from src.channel import Channel
-import os
-from googleapiclient.discovery import build
+from src.getyoutube import Getyoutube
 
 
-class Video(Channel):
+class Video(Getyoutube):
     def __init__(self, video_id):
         self.video_id = video_id  # id видео
         video_response = self.video_statistics(self.video_id)
@@ -39,5 +35,3 @@ class PLVideo(Video):
     def __init__(self, video_id: str, play_list_id: str) -> None:
         super().__init__(video_id)
         self.play_list_id: str = play_list_id  # id плей-листа
-
-
